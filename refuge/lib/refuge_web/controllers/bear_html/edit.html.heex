@@ -1,0 +1,8 @@
+<.header>
+  Edit Bear <%= @bear.id %>
+  <:subtitle>Use this form to manage bear records in your database.</:subtitle>
+</.header>
+
+<.bear_form changeset={@changeset} action={~p"/bears/#{@bear}"} />
+
+<.back navigate={~p"/bears"}>Back to bears</.back>

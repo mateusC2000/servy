@@ -1,0 +1,25 @@
+<.header>
+  Listing Bears
+  <:actions>
+    <.link href={~p"/bears/new"}>
+      <.button>New Bear</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="bears" rows={@bears} row_click={&JS.navigate(~p"/bears/#{&1}")}>
+  <:col :let={bear} label="Name"><%= bear.name %></:col>
+  <:col :let={bear} label="Type"><%= bear.type %></:col>
+  <:col :let={bear} label="Hibernating"><%= bear.hibernating %></:col>
+  <:action :let={bear}>
+    <div class="sr-only">
+      <.link navigate={~p"/bears/#{bear}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/bears/#{bear}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={bear}>
+    <.link href={~p"/bears/#{bear}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

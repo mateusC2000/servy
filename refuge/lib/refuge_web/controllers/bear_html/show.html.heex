@@ -1,0 +1,17 @@
+<.header>
+  Bear <%= @bear.id %>
+  <:subtitle>This is a bear record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/bears/#{@bear}/edit"}>
+      <.button>Edit bear</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @bear.name %></:item>
+  <:item title="Type"><%= @bear.type %></:item>
+  <:item title="Hibernating"><%= @bear.hibernating %></:item>
+</.list>
+
+<.back navigate={~p"/bears"}>Back to bears</.back>
