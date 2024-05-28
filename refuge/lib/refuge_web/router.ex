@@ -17,13 +17,13 @@ defmodule RefugeWeb.Router do
   scope "/", RefugeWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    resources "/bears", BearController
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RefugeWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", RefugeWeb do
+    pipe_through :api
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:refuge, :dev_routes) do
